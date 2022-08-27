@@ -5,8 +5,38 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>TLoad v1</title>
+	<link rel="stylesheet" href="libs/css/style.scss">
+	<link rel="stylesheet" href="libs/css/style.css">
+	
 </head>
 <body>
 	
+	<div class="container">
+		<h1 data-text="NEW RETRO TEXT">Gaming Interactive</h1>
+	</div>
+
+
+	<div class="background-80s animated-clouds stars" style="--background-height:100vh">
+		<div class="grid" style="--grid-color:rgba(185, 8, 8, 0.7);--grid-size:30px;--grid-blur:1px;"></div>
+	
+		<div class="road-off"></div>
+		<div class="overlay"></div>
+	
+	</div>
+	<svg width="0" height="0">
+		<filter id="filter">
+			<feTurbulence type="fractalNoise" baseFrequency=".01" numOctaves="10" id="fractalNoise" />
+			<feDisplacementMap id="displacementMap" in="SourceGraphic" scale="120" />
+		</filter>
+		<animate xlink:href="#displacementMap" id="animclouds1" begin="0; animclouds2.end" attributeName="scale" from="50"
+			to="180" dur="3s" fill="freeze" />
+		<animate xlink:href="#displacementMap" id="animclouds2" begin="animclouds1.end" attributeName="scale" from="180"
+			to="50" dur="3s" fill="freeze" />
+		<animate xlink:href="#fractalNoise" id="animclouds3" begin="0;animclouds4.end" attributeName="baseFrequency"
+			from="0.03" to="0.01" dur="30s" fill="freeze" />
+		<animate xlink:href="#fractalNoise" id="animclouds4" begin="animclouds3.end" attributeName="baseFrequency"
+			from="0.01" to="0.03" dur="30s" fill="freeze" />
+	</svg>
+
 </body>
 </html>
